@@ -49,10 +49,10 @@ namespace GPA_Calc
                         courseCodeInput = Console.ReadLine();
                     }
                     courseCode = courseCodeInput.ToUpper();
-                    Console.Write($"Enter Course {counter + 1} Unit (0-9): ");
+                    Console.Write($"Enter Course {counter + 1} Unit (0-5): ");
                     string courseUnitInput = Console.ReadLine();
                     long courseUnit;
-                    while (!long.TryParse(courseUnitInput, out courseUnit) || courseUnit < 0 || courseUnit > 9)
+                    while (!long.TryParse(courseUnitInput, out courseUnit) || courseUnit <= 0 || courseUnit > 5)
                     {
                         Console.Write(msg.CourseUnitERR() + $"Enter Course {counter + 1} Unit: ");
                         courseUnitInput = Console.ReadLine();
@@ -60,7 +60,7 @@ namespace GPA_Calc
                     Console.Write($"Course {counter + 1} Score (0-100): ");
                     string courseScoreInput = Console.ReadLine();
                     long courseScore;
-                    while (!long.TryParse(courseScoreInput, out courseScore) || courseScore < 0 || courseScore > 100)
+                    while (!long.TryParse(courseScoreInput, out courseScore) || courseScore <= 0 || courseScore > 100)
                     {
                         Console.Write(msg.CourseScoreERR() + $"Enter Course {counter + 1} Score: ");
                         courseScoreInput = Console.ReadLine();

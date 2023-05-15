@@ -68,7 +68,7 @@ namespace GPA_Calc
         public bool IsLength(string num)
         {
             long length;
-            if(!long.TryParse(num, out length) || length < 0 || length > 9)
+            if(!long.TryParse(num, out length) || length < 0 || length > 5)
             {
                 return false;
             }
