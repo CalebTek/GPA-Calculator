@@ -20,6 +20,7 @@ namespace GPA_Calc
             string startKey = startKeyInput.KeyChar.ToString();
             while (!check.MatchKey(startKey))
             {
+                Console.Clear();
                 Console.Write("\nInvalid input, Press Y or N: ");
                 startKeyInput = Console.ReadKey();
                 startKey = startKeyInput.KeyChar.ToString();
@@ -42,8 +43,9 @@ namespace GPA_Calc
                     Console.Write($"Enter Course {counter + 1} Code e.g CSH101, NJS101, JVA101: ");
                     string courseCodeInput = Console.ReadLine();
                     string courseCode;
-                    while (!check.Match(courseCodeInput) || !check.Length(courseCodeInput) || check.Exist(courseCodeInput.ToUpper()))
+                    while (!check.Match(courseCodeInput) || check.Exist(courseCodeInput.ToUpper()))
                     {
+                        Console.Clear();
                         Console.Write(msg.CourseCodeERR()+ $"Enter Course {counter + 1} Code: ");
                         courseCodeInput = Console.ReadLine();
                     }
@@ -53,6 +55,7 @@ namespace GPA_Calc
                     long courseUnit;
                     while (!long.TryParse(courseUnitInput, out courseUnit) || courseUnit <= 0 || courseUnit > 5)
                     {
+                        Console.Clear();
                         Console.Write(msg.CourseUnitERR() + $"Enter Course {counter + 1} Unit: ");
                         courseUnitInput = Console.ReadLine();
                     }
@@ -61,6 +64,7 @@ namespace GPA_Calc
                     long courseScore;
                     while (!long.TryParse(courseScoreInput, out courseScore) || courseScore <= 0 || courseScore > 100)
                     {
+                        Console.Clear();
                         Console.Write(msg.CourseScoreERR() + $"Enter Course {counter + 1} Score: ");
                         courseScoreInput = Console.ReadLine();
                     }
@@ -72,6 +76,7 @@ namespace GPA_Calc
                 string addKey = addKeyInput.KeyChar.ToString();
                 while (!check.MatchKey(addKey))
                 {
+                    Console.Clear();
                     Console.Write("\nInvalid input, Press Y or N: ");
                     addKeyInput = Console.ReadKey();
                     addKey = addKeyInput.KeyChar.ToString();
@@ -94,6 +99,7 @@ namespace GPA_Calc
             }
 
             // Display result
+            Console.Clear();
             TableDisplay resultDisplay = new TableDisplay(courseList);
             Console.Write("Do you want to display result? Y or N: ");
             ConsoleKeyInfo keyInput = Console.ReadKey();
@@ -101,6 +107,7 @@ namespace GPA_Calc
             Console.WriteLine();
             while (!check.MatchKey(isDisplay))
             {
+                Console.Clear();
                 Console.Write("\nInvalid input, Press Y or N: ");
                 keyInput = Console.ReadKey();
                 isDisplay = keyInput.KeyChar.ToString();
@@ -114,7 +121,6 @@ namespace GPA_Calc
 
                 case "n":
                 case "N":
-                    //Console.Write("\nPress enter to exit... ");
                     break;
 
             }
